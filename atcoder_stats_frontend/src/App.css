@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 20px;
+    overflow: hidden;
+    padding: 0.1rem;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background: #333;
+    color: #efd6d6;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+.user-stats,
+.submission-list {
+    background: #afcb72;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: 10px;
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.loading {
+    background: #cce5ff;
+    color: #004085;
+}
+.problem-difficulty-stats {
+    background: #8d9dd0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.problem-difficulty-stats table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.problem-difficulty-stats th,
+.problem-difficulty-stats td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.problem-difficulty-stats tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.problem-difficulty-stats th {
+    background-color: #4CAF50;
+    color: white;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.problem-difficulty-graph {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
