@@ -13,7 +13,6 @@ const fetchAllSubmissions = async (userId) => {
   let fromSecond = 0;
   let allSubmissions = [];
   let hasMoreSubmissions = true;
-
   while (hasMoreSubmissions) {
     try {
       const response = await axios.get(`${submissionsApiUrl}${userId}&from_second=${fromSecond}`);
@@ -54,32 +53,51 @@ const fetchProblemModels = async () => {
 
 const processSubmissions = (submissions, problemModels) => {
   const acceptedProblems = new Set();
-  const problemsByDifficulty = Array(51).fill(0); // 0 to 5000 in steps of 100
-
+  const attemptedProblems = new Set();
+  const problemsByDifficulty = Array(51).fill(0);
+  const unsolvedProblemsByDifficulty = Array(51).fill(0);
+  const unsolvedProblems = new Set();
+  console.log('HI');
   submissions.forEach(sub => {
+    attemptedProblems.add(sub.problem_id);
     if (sub.result === 'AC') {
       acceptedProblems.add(sub.problem_id);
     }
   });
 
-  acceptedProblems.forEach(problemId => {
+  attemptedProblems.forEach(problemId => {
+    if (!acceptedProblems.has(problemId)) {
+      unsolvedProblems.add(problemId);
+    }
+    
     if (problemModels[problemId] !== undefined) {
       let difficulty = problemModels[problemId];
       if (difficulty < 0) difficulty = 0;
       if (difficulty > 5000) difficulty = 5000;
       difficulty = Math.round(difficulty / 100);
-      problemsByDifficulty[difficulty]++;
+      
+      if (acceptedProblems.has(problemId)) {
+        problemsByDifficulty[difficulty]++;
+      } else {
+        unsolvedProblemsByDifficulty[difficulty]++;
+      }
     }
   });
-  console.log(problemsByDifficulty);
+  // console.log(userInfo);
+  // console.log(unsolvedProblems);
+  // console.log(problemsByDifficulty);
+
   return {
     userInfo: {
       user_id: submissions[0]?.user_id || 'Not available',
-      accepted_count: acceptedProblems.size
+      accepted_count: acceptedProblems.size,
+      attempted_count: attemptedProblems.size,
+      unsolved_count: unsolvedProblems.size
     },
     userSubmissions: submissions,
-    problemsByDifficulty
-    
+    problemsByDifficulty,
+    unsolvedProblemsByDifficulty,
+    unsolvedProblems: Array.from(unsolvedProblems)
   };
 };
 

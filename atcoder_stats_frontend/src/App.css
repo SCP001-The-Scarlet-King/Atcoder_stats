@@ -1,108 +1,170 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #f0f2f5;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 100%;
-    margin: 20px;
-    overflow: hidden;
-    padding: 0.1rem;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #333;
+    color: #2c3e50;
     text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
 }
 
 form {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"] {
-    width: 90%;
-    padding: 10px;
-    margin-right: 10px;
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 button {
-    padding: 10px 15px;
-    background: #333;
-    color: #efd6d6;
+    padding: 12px 20px;
+    background: #3498db;
+    color: #ffffff;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background: #555;
+    background: #2980b9;
 }
 
 .user-stats,
-.submission-list {
-    background: #afcb72;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+.submission-list,
+.problem-difficulty-stats {
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .loading,
 .error {
     text-align: center;
-    padding: 10px;
-    background: #f8d7da;
-    color: #721c24;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .loading {
-    background: #cce5ff;
-    color: #004085;
+    background: #d4edda;
+    color: #155724;
 }
-.problem-difficulty-stats {
-    background: #8d9dd0;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
 }
 
 .problem-difficulty-stats table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 .problem-difficulty-stats th,
 .problem-difficulty-stats td {
     text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.problem-difficulty-stats tr:last-child td {
+    border-bottom: none;
 }
 
 .problem-difficulty-stats tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f8f9fa;
 }
 
 .problem-difficulty-stats th {
-    background-color: #4CAF50;
+    background-color: #3498db;
     color: white;
-}
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .problem-difficulty-graph {
-    margin-top: 20px;
+    margin-top: 30px;
     background-color: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* New styles for the toggle button */
+.toggle-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    background: #2ecc71;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.toggle-button:hover {
+    background: #27ae60;
+}
+
+/* Styles for unsolved problems list */
+.unsolved-problems {
+    background: #ffffff;
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.unsolved-problems h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.unsolved-problems ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.unsolved-problems li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.unsolved-problems li:last-child {
+    border-bottom: none;
 }

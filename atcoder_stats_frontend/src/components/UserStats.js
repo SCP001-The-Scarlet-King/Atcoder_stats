@@ -1,8 +1,9 @@
 import React from 'react';
 
 const UserStats = ({ userInfo }) => {
+  console.log("userInfo : ",userInfo);
   if (!userInfo) {
-    return <div>User info not available</div>;
+    return <div>User infof not available</div>;
   }
 
   return (

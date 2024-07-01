@@ -1,13 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const ProblemDifficultyGraph = ({ problemsByDifficulty }) => {
+const ProblemDifficultyGraph = ({ problemsByDifficulty, title }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
   useEffect(() => {
     if (chartInstance.current) {
       chartInstance.current.destroy();
+    }
+
+    if (!problemsByDifficulty || problemsByDifficulty.length === 0) {
+      return;
     }
 
     const colors = [
@@ -34,7 +38,7 @@ const ProblemDifficultyGraph = ({ problemsByDifficulty }) => {
       data: {
         labels: labels,
         datasets: [{
-          label: 'Problems Solved',
+          label: 'Problems',
           data: data,
           backgroundColor: backgroundColors,
         }]
@@ -48,7 +52,7 @@ const ProblemDifficultyGraph = ({ problemsByDifficulty }) => {
           },
           title: {
             display: true,
-            text: 'Problem Ratings',
+            text: title,
           },
         },
         scales: {
@@ -67,7 +71,7 @@ const ProblemDifficultyGraph = ({ problemsByDifficulty }) => {
         chartInstance.current.destroy();
       }
     };
-  }, [problemsByDifficulty]);
+  }, [problemsByDifficulty, title]);
 
   return (
     <div style={{ height: '400px' }}>

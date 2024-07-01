@@ -7,6 +7,7 @@ const InputForms = ({ fetchData }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(atcoderId);
     if (atcoderId) {
       setIsLoading(true);
       setError(null);
